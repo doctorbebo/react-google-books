@@ -14,10 +14,10 @@ const bookSchema = new mongoose.Schema({
         type: String,
     },
     img: {
-        type: URL,
+        type: String,
     },
     link: {
-        type: URL,
+        type: String,
         required: true
     }
 });
