@@ -1,18 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Saved from "./componets/Saved";
 import Search from "./componets/Search";
+import NavBar from "./componets/Navbar"
+import WelcomeBanner from "./componets/WelcomeBanner"
+import BookInfo from "./componets/BookInfo"
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      
-      <Router>
+   <Router>
+        <NavBar/>
+        <WelcomeBanner/>
         <Route path="/" exact component={Search}/>
-        <Route path="/Saved" exact component={Saved}/>
-      </Router>
-    </div>
+        <Route path="/saved" exact component={Saved}/>
+        <BookInfo/>
+    </Router>
   );
 }
 
