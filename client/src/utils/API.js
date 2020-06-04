@@ -9,5 +9,8 @@ export default {
   },
   deleteBook: function(_id) {
     return axios.delete('/api/books/' + _id);
+  },
+  runSearch: function(query){
+    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
   }
 };

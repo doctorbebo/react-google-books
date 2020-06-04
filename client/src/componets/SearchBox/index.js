@@ -1,5 +1,4 @@
 import React from "react";
-import BookInfo from "../BookInfo"
 
 function SearchBox() 
 {
