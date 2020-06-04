@@ -115,6 +115,40 @@ h4
 {
   display: inline-block;
 }
+.notification-bar-revealed
+{
+  padding: 40px 0;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  background-color: whitesmoke;
+  border: black solid 2px;
+  border-radius: 25px;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  opacity: 1;
+}
+.notification-bar-hidden
+{
+  padding: 40px 0;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  background-color: whitesmoke;
+  border: black solid 2px;
+  border-radius: 25px;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; 
+  opacity: 0;
+  transition: opacity 3s;}
 .padding
 {
   padding: 0 10px;

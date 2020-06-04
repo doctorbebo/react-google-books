@@ -12,6 +12,7 @@ class App extends React.Component
   constructor(props)
   {
     super(props)
+    this.displyRef = React.createRef()
     this.state = 
     {
       savedBooks: []
@@ -27,7 +28,10 @@ class App extends React.Component
       if(Array.isArray(items))
       {
         items.push(value); 
-        this.setState({[key]: items})
+        this.setState({[key]: items}, ()=>
+        {
+          this.displayMessage("Book Saved")
+        })
       }
     }else if (type === "delete") {
       if(Array.isArray(items))
@@ -48,6 +52,16 @@ class App extends React.Component
     }
   }
 
+  displayMessage = (message)=>
+  {
+    this.displyRef.current.innerText = message;
+    this.displyRef.current.classList.value = "notification-bar-revealed"
+    this.timerID = setTimeout(      
+      ()=> this.displyRef.current.classList.value = "notification-bar-hidden",      
+      1000);
+
+  }
+
 
   componentDidMount()
   {
@@ -57,6 +71,13 @@ class App extends React.Component
         this.setState({"savedBooks": res.data});
       })
       .catch(err => console.log(err));
+
+      this.timerID = setTimeout(      
+        ()=> this.displyRef.current.classList.value = "notification-bar-hidden",      
+        1000);
+
+      this.displyRef.current.innerText = "Hello World"
+      console.log(this.displyRef)
   }
 
   render()
@@ -67,6 +88,7 @@ class App extends React.Component
           <WelcomeBanner/>
           <Route path="/" exact render={() => <Search handleState={this.handleState} />}/>
           <Route path="/saved" exact render={() => <Saved savedBooks = {this.state.savedBooks} handleState={this.handleState} />}/>
+          <div className="notification-bar-hidden" ref = {this.displyRef}></div>
       </Router>
     )}
 }
